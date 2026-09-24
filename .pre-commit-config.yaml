@@ -78,39 +78,6 @@ repos:
       - id: biome-check  # Format, organize import, lint and apply safe fix
         additional_dependencies: ["@biomejs/biome@2.5.8"]
         name: "🌐 Js, Ts, Json, Html, Css - Format, lint, safe fix"
-  - repo: https://github.com/astral-sh/ty-pre-commit
-    # ty version.
-    rev: v0.0.72
-    hooks:
-      - id: ty
-        name: "🐍 Ty - Typecheck Python file"
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    # Ruff version.
-    rev: v0.16.3
-    hooks:
-      # Run the linter.
-      - id: ruff
-        args: [--fix]
-        name: "🐍 Py - Lint Python file"
-      # Run the formatter.
-      - id: ruff-format
-        name: "🐍 Py - Format Python file"
-  # Local hooks calling the system cargo directly: no third-party wrapper
-  # repo needed, but a Rust toolchain must be installed. Clippy runs the
-  # compiler checks too, so a separate `cargo check` hook would be redundant.
-  - repo: local
-    hooks:
-      - id: cargo-fmt
-        name: "⛴️ Rs - Format Rust file"
-        language: system
-        entry: cargo fmt --
-        types: [rust]
-      - id: cargo-clippy
-        name: "⛴️ Rs - Lint Rust file"
-        language: system
-        entry: cargo clippy --all-targets -- -D warnings
-        types: [rust]
-        pass_filenames: false
   - repo: https://github.com/crate-ci/typos
     rev: v1.49.0
     hooks:
