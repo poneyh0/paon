@@ -1,0 +1,38 @@
+# .github but remove if CI are needed.
+.github/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# IA
+.claude/
+
+# Markdown
+.rumdl_cache/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Node / JS / TS
+node_modules/
+dist/
+
+# Rust
+target/
+
+# C++
+*.o
+*.obj
+build/
+cmake-build-*/
+*.a
+*.so
+*.dylib

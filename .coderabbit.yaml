@@ -1,0 +1,17 @@
+---
+language: "en-US"
+reviews:
+  profile: "chill"
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: true
+  review_status: true
+  review_details: false
+  auto_review:
+    enabled: true
+    # Drafts are skipped; the review fires when the MR leaves draft state.
+    drafts: false
+    # By default CodeRabbit only auto-reviews MRs targeting the default
+    # branch. Regex list of additional base branches; ".*" matches all.
+    base_branches:
+      - ".*"

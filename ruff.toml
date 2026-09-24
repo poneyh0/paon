@@ -1,0 +1,131 @@
+###########################
+# Ruff top-level settings #
+###########################
+# Exclude a variety of commonly ignored directories.
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".ipynb_checkpoints",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pyenv",
+  ".pytest_cache",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  ".vscode",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "site-packages",
+  "venv",
+]
+# Python 3.14 target
+target-version = "py314"
+# Follow PEP-8 guidelines (https://peps.python.org/pep-0008/#maximum-line-length)
+line-length = 79
+# Follow PEP-8 guidelines (https://peps.python.org/pep-0008/#indentation)
+indent-width = 4
+
+######################
+# Ruff lint settings #
+######################
+[lint]
+# Enable preview rules (required for pydoclint 'DOC' rules).
+preview = true
+# Enable the following rules:
+# - Pyflakes (https://docs.astral.sh/ruff/rules/#pyflakes-f):
+#   - All ('F')
+# - pycodestyle (https://docs.astral.sh/ruff/rules/#pycodestyle-e):
+#   - All 400 ('E4')
+#   - All 700 ('E7')
+#   - All 900 ('E9')
+# - isort (https://docs.astral.sh/ruff/rules/#isort-i):
+#   - All ('I')
+# - pep8-naming (https://docs.astral.sh/ruff/rules/#pep8-naming-n):
+#   - All ('N')
+# - pydocstyle (https://docs.astral.sh/ruff/rules/#pydocstyle-d):
+#   - All ('D')
+# - flake8-copyright (https://docs.astral.sh/ruff/rules/#flake8-copyright-cpy):
+#   - All ('CPY')
+# - flake8-datetimetz (https://docs.astral.sh/ruff/rules/#flake8-datetimez-dtz):
+#   - All ('DTZ')
+# - flake8-errormsg (https://docs.astral.sh/ruff/rules/#flake8-errmsg-em)
+#    - All ('EM')
+# - flake8-use-pathlib (https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth):
+#    - All ('PTH')
+# - Tryceratops (https://docs.astral.sh/ruff/rules/#tryceratops-try):
+#   - All ('TRY')
+# - Perflint (https://docs.astral.sh/ruff/rules/#perflint-perf):
+#   - All ('PERF')
+# - pydoclint (https://docs.astral.sh/ruff/rules/#pydoclint-doc):
+#   - All ('DOC')
+# - Ruff (https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf):
+#    - All ('RUF')
+select = [
+  "E4",
+  "E7",
+  "E9",
+  "F",
+  "I",
+  "N",
+  "D",
+  "CPY",
+  "DTZ",
+  "EM",
+  "PTH",
+  "TRY",
+  "PERF",
+  "DOC",
+  "RUF",
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# pydocstyle ('D') has rules that conflict with each other (D203/D211,
+# D212/D213) unless a convention is picked. Change this to "numpy" or
+# "pep257" if you prefer another docstring style.
+[lint.pydocstyle]
+convention = "google"
+
+# flake8-copyright ('CPY') needs an author to check the copyright notice
+# against. Update this if the copyright holder changes.
+[lint.flake8-copyright]
+author = "Poneyh"
+
+# We use --fix option with pre-commit so the [format] section should be
+# defined after [lint] section. (https://github.com/astral-sh/ruff-pre-commit/blob/main/README.md)
+########################
+# Ruff format settings #
+########################
+[format]
+# Enable auto-formatting of code examples in docstrings.
+docstring-code-format = true
+# Follow PEP-8 guidelines (https://peps.python.org/pep-0008/#maximum-line-length)
+docstring-code-line-length = 72
+# Follow PEP-8 guidelines (https://peps.python.org/pep-0008/#tabs-or-spaces)
+indent-style = "space"
+# Force LF line endings by default.
+# Set `git config --global core.autocrlf true` when working
+# with Windows OS before checkouting code. In general, projects
+# needing to keep their line endings will provide advice on how
+# to clone their repository.
+line-ending = "lf"
+# Follow PEP-8 guidelines (https://peps.python.org/pep-0008/#string-quotes).
+# Here we choose to use double quotes.
+quote-style = "double"
+# Keep default from Ruff. For explanation on magic trailing commas:
+# (https://docs.astral.sh/ruff/settings/#format_skip-magic-trailing-comma)
+skip-magic-trailing-comma = false

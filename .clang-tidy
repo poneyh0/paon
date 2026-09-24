@@ -1,0 +1,32 @@
+---
+# clang-tidy is not run by pre-commit: it needs a compilation database
+# (compile_commands.json), so set CMAKE_EXPORT_COMPILE_COMMANDS=ON in your
+# CMake project and let your IDE (clangd, CLion) or CI run it.
+#
+# Check families enabled: real bug finders (bugprone, clang-analyzer,
+# concurrency), C++ Core Guidelines, Google style (matches .clang-format),
+# modernization, performance, portability and readability.
+#
+# Disabled checks (classic noise sources, re-enable to taste):
+# - modernize-use-trailing-return-type: stylistic, forces `auto f() -> T`.
+# - *-magic-numbers: flags almost every numeric literal.
+# - readability-identifier-length: flags short names like `i` or `it`.
+Checks:
+  - bugprone-*
+  - clang-analyzer-*
+  - concurrency-*
+  - cppcoreguidelines-*
+  - google-*
+  - misc-*
+  - modernize-*
+  - performance-*
+  - portability-*
+  - readability-*
+  - -modernize-use-trailing-return-type
+  - -readability-magic-numbers
+  - -cppcoreguidelines-avoid-magic-numbers
+  - -readability-identifier-length
+# Report issues in your own headers too, not only in .cpp files.
+HeaderFilterRegex: '.*'
+# Use the .clang-format file when applying fixes.
+FormatStyle: file

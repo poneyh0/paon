@@ -1,0 +1,76 @@
+# rumdl — https://rumdl.dev
+# Priorité de découverte : .rumdl.toml > rumdl.toml > .config/rumdl.toml
+#                          > pyproject.toml [tool.rumdl]
+# Le premier fichier trouvé gagne, les autres sont ignorés.
+
+[global]
+respect-gitignore = true
+exclude = [
+  ".venv",
+  "node_modules",
+  "build",
+  "dist",
+  "target",
+  ".obsidian",
+  ".trash",
+  ".smart-env",   # vault Obsidian
+]
+# MD042 (liens vides) : les wikilinks et placeholders Obsidian la déclenchent.
+# Même choix que le plugin obsidian-markdownlint.
+disable = ["MD042"]
+
+[MD007]
+indent = 2
+
+[MD013]
+line-length = 80
+reflow = true
+reflow-mode = "semantic-line-breaks"
+code-blocks = false                  # on ne casse jamais une commande
+code-spans = false
+tables = false                       # une ligne de tableau ne se coupe pas
+headings = true
+ignore-link-urls = true              # une URL longue ne doit pas faire échouer le commit
+
+[MD024]
+siblings-only = true
+
+[MD025]
+level = 1
+front-matter-title = "" # un "title:" en frontmatter + un H1 ne doit pas lever
+
+# HTML inline autorisé — liste reprise du plugin obsidian-markdownlint,
+# ce sont les éléments qu'Obsidian rend nativement.
+[MD033]
+allowed-elements = [
+  "a",
+  "br",
+  "details",
+  "div",
+  "img",
+  "s",
+  "span",
+  "summary",
+  "sup",
+  "table",
+  "thead",
+  "tbody",
+  "td",
+  "th",
+  "tr",
+]
+
+[MD029]
+style = "one"
+
+[MD046]
+style = "fenced"
+
+[MD048]
+code-fence-style = "backtick"
+
+# Obsidian : si tu écris des tags en début de ligne (#project), MD018 les prend
+# pour des titres mal formés. Décommente si ça arrive — sinon mets tes tags
+# dans le frontmatter et laisse la règle active.
+# [MD018]
+# enabled = false
