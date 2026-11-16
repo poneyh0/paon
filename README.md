@@ -31,11 +31,11 @@ Some hooks need their language runtime installed locally to run:
 - **C++ (`cppcheck`)**: a local install of cppcheck
   (e.g. `brew install cppcheck` or `apt install cppcheck`).
 - **CMake (`gersemi`)**: none, `pre-commit` manages it.
-- **Js, Ts, Json, Html, Css (`biome`)**: Node.js (pulled automatically by
-  `pre-commit` via `additional_dependencies`).
+- **Js, Ts, Json, Html, Css (`biome`)**: Node.js
+  (pulled automatically by `pre-commit` via `additional_dependencies`).
 - **Python (`ruff`, `ty`)**: none extra, the hooks ship their own binary.
-- **Rust (`cargo-fmt`, `cargo-clippy`)**: a local Rust toolchain (`cargo`)
-  already installed.
+- **Rust (`cargo-fmt`, `cargo-clippy`)**:
+  a local Rust toolchain (`cargo`) already installed.
 
 ## License 🔑
 
